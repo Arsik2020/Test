@@ -1,0 +1,13 @@
+CREATE TABLE data.employyes(
+    EM_ID VARCHAR(37) PRIMARY KEY default gen_random_uuid(),
+    EM_E_ID VARCHAR(37),
+    EM_FIRST_NAME VARCHAR(32),
+    EM_SURNAME VARCHAR(32),
+    EM_LAST_NAME VARCHAR(32),
+    EM_POST VARCHAR(32),
+    EM_DELETE_DATE TIMESTAMP WITHOUT TIME ZONE
+);
+ALTER TABLE data.employee
+	ADD CONSTRAINT employee_to_enterprise_id
+			FOREIGN KEY (EM_E_ID)
+				REFERENCES data.enterprises(E_ID);
